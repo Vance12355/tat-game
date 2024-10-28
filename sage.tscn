@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://djskkmgl5nqdw"]
+
+[ext_resource type="Script" path="res://sage.gd" id="1_vxy1s"]
+[ext_resource type="Texture2D" uid="uid://ckydqfeggw42v" path="res://assets/Assets/kul_gali2.png" id="2_y8jqx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pk75c"]
+size = Vector2(116, 96)
+
+[node name="Sage" type="Area2D"]
+script = ExtResource("1_vxy1s")
+
+[node name="KulGali2" type="Sprite2D" parent="."]
+position = Vector2(1.99999, 4)
+scale = Vector2(0.333333, 0.408451)
+texture = ExtResource("2_y8jqx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_pk75c")
+
+[connection signal="body_entered" from="." to="." method="_on_player_enter"]
+[connection signal="body_exited" from="." to="." method="_on_player_exit"]

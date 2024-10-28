@@ -14,7 +14,8 @@ var is_chasing = false  # Змея преследует игрока?
 var player: Node2D
 
 func _ready() -> void:
-	player = get_parent().get_node("Player")  # Найти игрока
+	# Устанавливаем ссылку на игрока (укажи правильный путь, если требуется)
+	player = get_node("/root/Player")  
 	set_physics_process(true)
 
 func _physics_process(delta: float) -> void:
@@ -37,7 +38,6 @@ func patrol(delta: float) -> void:
 	velocity.x = direction * PATROL_SPEED
 	if is_at_edge():
 		direction *= -1  # Меняем направление, если достигли края платформы
-		$RayCast2D_Downward
 	$AnimatedSprite2D.play("slither")  # Анимация патрулирования
 
 # Преследование игрока

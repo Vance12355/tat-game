@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 # Константы для скорости и прыжка
 const SPEED = 300.0
