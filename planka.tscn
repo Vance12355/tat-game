@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmll0vvlxraiy"]
+
+[ext_resource type="Texture2D" uid="uid://cgd47mbimvmwj" path="res://assets/planka.png" id="1_0oaxi"]
+[ext_resource type="Script" path="res://planka.gd" id="1_4ga0n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mv4cr"]
+size = Vector2(48, 5)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+position = Vector2(0, -8)
+script = ExtResource("1_4ga0n")
+
+[node name="Planka" type="Sprite2D" parent="."]
+position = Vector2(0, 8)
+texture = ExtResource("1_0oaxi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_mv4cr")
+one_way_collision = true

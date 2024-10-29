@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7di45p1bujnd"]
+
+[ext_resource type="Texture2D" uid="uid://da425pw7lalu3" path="res://assets/Assets/heart_60px.png" id="1_gsil5"]
+[ext_resource type="Texture2D" uid="uid://br56tljwkst1a" path="res://assets/gameover.png" id="2_vtind"]
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="HeartsCont" type="HBoxContainer" parent="."]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 992.0
+offset_bottom = 76.0
+
+[node name="TextureRect" type="TextureRect" parent="HeartsCont"]
+layout_mode = 2
+texture = ExtResource("1_gsil5")
+
+[node name="TextureRect2" type="TextureRect" parent="HeartsCont"]
+layout_mode = 2
+texture = ExtResource("1_gsil5")
+
+[node name="TextureRect3" type="TextureRect" parent="HeartsCont"]
+layout_mode = 2
+texture = ExtResource("1_gsil5")
+
+[node name="TextureRect4" type="TextureRect" parent="HeartsCont"]
+layout_mode = 2
+texture = ExtResource("1_gsil5")
+
+[node name="GameOver" type="Node2D" parent="."]
+visible = false
+
+[node name="Gameover" type="Sprite2D" parent="GameOver"]
+position = Vector2(580, 328)
+scale = Vector2(0.765, 0.586667)
+texture = ExtResource("2_vtind")

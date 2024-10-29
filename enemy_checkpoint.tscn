@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx4v8cnvxqnnb"]
+
+[ext_resource type="Script" path="res://enemy_checkpoint.gd" id="1_tijgg"]
+
+[node name="Enemy_checkpoint" type="Area2D"]
+script = ExtResource("1_tijgg")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-82, -262)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

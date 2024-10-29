@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgsyd05cjapde"]
+
+[ext_resource type="Script" path="res://crackplank.gd" id="1_2mj5a"]
+[ext_resource type="Texture2D" uid="uid://1erjfofn1phu" path="res://assets/Assets/kekeke.png" id="2_mvnhh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xfwww"]
+size = Vector2(48, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2e4tx"]
+size = Vector2(8, 9)
+
+[node name="CrackPlank" type="StaticBody2D"]
+script = ExtResource("1_2mj5a")
+
+[node name="Kekeke" type="Sprite2D" parent="."]
+texture = ExtResource("2_mvnhh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_xfwww")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -11.5)
+shape = SubResource("RectangleShape2D_2e4tx")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]

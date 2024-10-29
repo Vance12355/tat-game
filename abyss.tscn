@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://chrkeg5byr1cp"]
+
+[ext_resource type="Script" path="res://area_2d.gd" id="1_3ksis"]
+
+[node name="Abyss" type="Area2D"]
+script = ExtResource("1_3ksis")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-82, -262)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

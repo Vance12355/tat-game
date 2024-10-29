@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://dif4aoa17xegj"]
+
+[ext_resource type="Texture2D" uid="uid://pal5plk0yx4w" path="res://assets/Assets/dialog_large.png" id="1_56jnl"]
+[ext_resource type="Texture2D" uid="uid://d22jy8s8m58iv" path="res://assets/Assets/kul_gali3.png" id="2_t0cw6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bxt48"]
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
+[node name="DialogUI" type="CanvasLayer"]
+
+[node name="DialogPanel" type="Panel" parent="."]
+offset_left = -118.0
+offset_top = -90.0
+offset_right = 1290.0
+offset_bottom = 774.0
+
+[node name="DialogLarge" type="Sprite2D" parent="DialogPanel"]
+position = Vector2(694, 418)
+scale = Vector2(2.32727, 1.34545)
+texture = ExtResource("1_56jnl")
+
+[node name="KulGali3" type="Sprite2D" parent="DialogPanel"]
+position = Vector2(1134, 554)
+scale = Vector2(2.63, 2.63)
+texture = ExtResource("2_t0cw6")
+
+[node name="DialogLabel" type="Label" parent="DialogPanel"]
+layout_mode = 0
+offset_left = 422.0
+offset_top = 242.0
+offset_right = 958.0
+offset_bottom = 658.0
+text = ";zdfkjdng;dkfng;kjdjnf
+gk;djnfglkdsjnflkgsdbjn;gkjadjnbr;kgjдявлвоаипдловы
+аипдлвоаипдлвоаитплдвоаитплдо"
+label_settings = SubResource("LabelSettings_bxt48")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="NextButton" type="Button" parent="DialogPanel"]
+process_mode = 3
+layout_mode = 0
+offset_left = 118.0
+offset_top = 90.0
+offset_right = 1270.0
+offset_bottom = 738.0
+flat = true

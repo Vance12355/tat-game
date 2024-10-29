@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd1hvlchlu1sn"]
+
+[ext_resource type="Texture2D" uid="uid://d02xum2dr8w1a" path="res://assets/Assets/hatch.png" id="1_bjnv4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qdktf"]
+size = Vector2(48, 8)
+
+[node name="Hatch" type="StaticBody2D"]
+
+[node name="Hatch" type="Sprite2D" parent="."]
+texture = ExtResource("1_bjnv4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_qdktf")

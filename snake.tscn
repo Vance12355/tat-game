@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://qowamjq1cj2s"]
+[gd_scene load_steps=23 format=3 uid="uid://qowamjq1cj2s"]
 
 [ext_resource type="Script" path="res://snake.gd" id="1_7i7er"]
 [ext_resource type="Texture2D" uid="uid://ceb74pm4uy7q" path="res://assets/raptor/spritesheets/2x/raptor-bite.png" id="2_8rl6h"]
@@ -101,7 +101,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_s36rg")
 }],
-"loop": true,
+"loop": false,
 "name": &"charge",
 "speed": 5.0
 }, {
@@ -129,8 +129,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4q38"]
-size = Vector2(96, 48)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7yjus"]
+radius = 23.0
+height = 94.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdwqr"]
+size = Vector2(70, 45)
 
 [node name="snake" type="CharacterBody2D"]
 script = ExtResource("1_7i7er")
@@ -140,17 +144,25 @@ sprite_frames = SubResource("SpriteFrames_mimfo")
 animation = &"slither"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5)
-shape = SubResource("RectangleShape2D_f4q38")
+position = Vector2(2, 6)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_7yjus")
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="RayCast2D_Forward" type="RayCast2D" parent="."]
-position = Vector2(48, 1)
-target_position = Vector2(31, 0)
+[node name="EdgeRayCast" type="RayCast2D" parent="."]
+position = Vector2(40, 26)
+target_position = Vector2(0, 14)
 
-[node name="RayCast2D_Downward" type="RayCast2D" parent="."]
-position = Vector2(48, 17)
-target_position = Vector2(0, 24)
+[node name="EdgeRayCast2" type="RayCast2D" parent="."]
+position = Vector2(-40, 25)
+target_position = Vector2(0, 14)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(35, -9.5)
+shape = SubResource("RectangleShape2D_tdwqr")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

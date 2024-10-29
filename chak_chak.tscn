@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1msn8yas1erj"]
+
+[ext_resource type="Script" path="res://chak_chak.gd" id="1_1t00v"]
+[ext_resource type="Texture2D" uid="uid://dp67fphy1u4ac" path="res://assets/food/25_cheesepuff_bowl.png" id="1_xrksx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4m1he"]
+size = Vector2(16, 16)
+
+[node name="ChakChak" type="Area2D"]
+script = ExtResource("1_1t00v")
+
+[node name="25CheesepuffBowl" type="Sprite2D" parent="."]
+position = Vector2(-2.68221e-07, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_xrksx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4m1he")
+
+[connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]
