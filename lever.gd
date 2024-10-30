@@ -7,6 +7,7 @@ var hatch_open = false
 func _ready() -> void:
 	$hatch_close.visible = true
 	$hatch_open.visible = false
+	$Key_animation.play("default")
 
 func _process(delta):
 	# Начало диалога при нажатии E, если игрок рядом и диалог не открыт
@@ -24,6 +25,7 @@ func _on_player_exit(body):
 		player_in_range = false
 
 func open_hatch():
+	$Key_animation.visible = false
 	get_node("/root/Game/Hatch").queue_free()
 	hatch_open = true
 	$hatch_close.visible = false

@@ -1,11 +1,34 @@
-[gd_scene load_steps=5 format=3 uid="uid://ber3a1nsap57q"]
+[gd_scene load_steps=9 format=3 uid="uid://ber3a1nsap57q"]
 
 [ext_resource type="Script" path="res://lever.gd" id="1_gk2tc"]
 [ext_resource type="Texture2D" uid="uid://bvps6e6u47rcq" path="res://assets/Assets/Спрайт-0002.png" id="2_6o1xo"]
 [ext_resource type="Texture2D" uid="uid://b6rw8wf34nmlw" path="res://assets/Assets/Спрайт-0003.png" id="3_nv14p"]
+[ext_resource type="Texture2D" uid="uid://0xl3lg54wtlf" path="res://assets/Keys/E-Key.png" id="4_f30q2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8cm3"]
 size = Vector2(64, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_id62d"]
+atlas = ExtResource("4_f30q2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_il5ag"]
+atlas = ExtResource("4_f30q2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g2qvi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_id62d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_il5ag")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
 
 [node name="Lever" type="Area2D"]
 script = ExtResource("1_gk2tc")
@@ -19,6 +42,12 @@ texture = ExtResource("2_6o1xo")
 
 [node name="hatch_open" type="Sprite2D" parent="."]
 texture = ExtResource("3_nv14p")
+
+[node name="Key_animation" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -24)
+scale = Vector2(0.375, 0.375)
+sprite_frames = SubResource("SpriteFrames_g2qvi")
+frame_progress = 0.17267
 
 [connection signal="body_entered" from="." to="." method="_on_player_enter"]
 [connection signal="body_exited" from="." to="." method="_on_player_exit"]
