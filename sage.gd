@@ -5,17 +5,39 @@ var player_in_range = false
 var dialogue_open = false
 var current_dialogue = 0
 
-# Экспортируемый массив диалогов для каждого мудреца
-@export var dialogues: Array = ["Приветствую, странник!"]
-
+# Путь к JSON-файлу с диалогами
+var dialogue_file = "res://dialogues.json"
+# Название диалога для каждого мудреца (уникальный ключ в JSON-файле)
+@export var dialogue_name: String
+# Текущий язык (по умолчанию русский)
+var current_language = "tt"
+# Диалоги из JSON
+var dialogues = []
 # Ссылка на диалоговое окно
 @onready var dialogue_panel = $"../DialogUI"
 @onready var dialogue_label = $"../DialogUI/DialogPanel/DialogLabel"
 @onready var next_button = $"../DialogUI/DialogPanel/NextButton"
+@onready var tt_button = $"../DialogUI/DialogPanel/Language_tt"
+@onready var ru_button = $"../DialogUI/DialogPanel/Language_ru"
+@onready var en_button = $"../DialogUI/DialogPanel/Language_en"
 
 func _ready() -> void:
 	dialogue_panel.visible = false
 	$Key_animation.play("default")
+	load_dialogues()
+
+func load_dialogues():
+	# Загружаем JSON с диалогами
+	var file = FileAccess.open(dialogue_file, FileAccess.READ)
+	if file:
+		var data = file.get_as_text()
+		data = JSON.parse_string(data)
+		if dialogue_name in data:
+			dialogues = data[dialogue_name].get(current_language, [])
+		file.close()
+	else:
+		push_error("Failed to load dialogues from JSON.")
+
 
 func _process(delta):
 	# Начало диалога при нажатии E, если игрок рядом и диалог не открыт
@@ -40,7 +62,6 @@ func close_dialogue():
 	get_tree().paused = false  # Снимаем игру с паузы
 	current_dialogue = 0
 	next_button.disconnect("pressed", Callable(self, "_on_next_button_pressed"))
-	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 var text_speed = 0.03  # Скорость показа текста
 var full_text = ""     # Полный текст текущей фразы
@@ -51,6 +72,10 @@ var is_animating_text = false
 func start_dialogue():
 	$Key_animation.visible = false
 	next_button.connect("pressed", Callable(self, "_on_next_button_pressed"))
+	tt_button.pressed.connect(_change_language_tt)
+	tt_button.connect("pressed", Callable(self, "_change_language_tt"))
+	ru_button.connect("pressed", Callable(self, "_change_language_ru"))
+	en_button.connect("pressed", Callable(self, "_change_language_en"))
 	dialogue_open = true
 	dialogue_panel.visible = true
 	current_dialogue = 0
@@ -87,3 +112,27 @@ func _on_next_button_pressed():
 		start_text_animation(dialogues[current_dialogue])
 	else:
 		close_dialogue()
+
+
+# Функция для смены языка
+func _change_language_tt():
+	current_language = "tt"
+	print("lksuhgoisbjgn")
+	load_dialogues()
+	print(dialogues)
+	if dialogue_open:
+		start_text_animation(dialogues[current_dialogue])  # Перезапуск диалога на новом языке
+
+# Функция для смены языка
+func _change_language_ru():
+	current_language = "ru"
+	load_dialogues()
+	if dialogue_open:
+		start_text_animation(dialogues[current_dialogue])  # Перезапуск диалога на новом языке
+
+# Функция для смены языка
+func _change_language_en():
+	current_language = "en"
+	load_dialogues()
+	if dialogue_open:
+		start_text_animation(dialogues[current_dialogue])  # Перезапуск диалога на новом языке

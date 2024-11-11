@@ -14,7 +14,7 @@ const WATER_SPEED = 50.0  # Сниженная скорость в воде
 # Переменные для отслеживания состояния прыжков
 var jumps_left = MAX_JUMPS
 var health = 3
-
+const MAX_HP = 3
 var UI
 
 var get_food = false
@@ -23,7 +23,8 @@ var get_food = false
 func _physics_process(delta: float) -> void:
 	if get_food:
 		get_food = false
-		health += 1
+		if health + 1 <= MAX_HP:
+			health += 1
 		update_health_display()
 	
 	if on_ladder:
