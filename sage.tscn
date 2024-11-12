@@ -30,6 +30,7 @@ animations = [{
 }]
 
 [node name="Sage" type="Area2D"]
+process_mode = 3
 script = ExtResource("1_vxy1s")
 
 [node name="KulGali2" type="Sprite2D" parent="."]

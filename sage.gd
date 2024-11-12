@@ -13,6 +13,7 @@ var dialogue_file = "res://dialogues.json"
 var current_language = "tt"
 # Диалоги из JSON
 var dialogues = []
+
 # Ссылка на диалоговое окно
 @onready var dialogue_panel = $"../DialogUI"
 @onready var dialogue_label = $"../DialogUI/DialogPanel/DialogLabel"
@@ -43,6 +44,8 @@ func _process(delta):
 	# Начало диалога при нажатии E, если игрок рядом и диалог не открыт
 	if player_in_range and Input.is_action_just_pressed("accept_action") and not dialogue_open:
 		start_dialogue()
+	if dialogue_open and Input.is_action_just_pressed("next_action"):
+		_on_next_button_pressed()
 
 # Обработка входа игрока в зону взаимодействия
 func _on_player_enter(body):
@@ -72,10 +75,10 @@ var is_animating_text = false
 func start_dialogue():
 	$Key_animation.visible = false
 	next_button.connect("pressed", Callable(self, "_on_next_button_pressed"))
-	tt_button.pressed.connect(_change_language_tt)
-	tt_button.connect("pressed", Callable(self, "_change_language_tt"))
-	ru_button.connect("pressed", Callable(self, "_change_language_ru"))
-	en_button.connect("pressed", Callable(self, "_change_language_en"))
+	tt_button.connect("pressed", Callable(self, "change_language_tt"))
+	ru_button.connect("pressed", Callable(self, "change_language_ru"))
+	en_button.connect("pressed", Callable(self, "change_language_en"))
+	print("Button connected to _on_next_button_pressed")
 	dialogue_open = true
 	dialogue_panel.visible = true
 	current_dialogue = 0
@@ -115,24 +118,25 @@ func _on_next_button_pressed():
 
 
 # Функция для смены языка
-func _change_language_tt():
-	current_language = "tt"
-	print("lksuhgoisbjgn")
-	load_dialogues()
-	print(dialogues)
-	if dialogue_open:
-		start_text_animation(dialogues[current_dialogue])  # Перезапуск диалога на новом языке
+func change_language_tt():
+	if !is_animating_text:
+		current_language = "tt"
+		load_dialogues()
+		if dialogue_open:
+			start_text_animation(dialogues[current_dialogue])  # Перезапуск диалога на новом языке
 
 # Функция для смены языка
-func _change_language_ru():
-	current_language = "ru"
-	load_dialogues()
-	if dialogue_open:
-		start_text_animation(dialogues[current_dialogue])  # Перезапуск диалога на новом языке
+func change_language_ru():
+	if !is_animating_text:
+		current_language = "ru"
+		load_dialogues()
+		if dialogue_open:
+			start_text_animation(dialogues[current_dialogue])  # Перезапуск диалога на новом языке
 
 # Функция для смены языка
-func _change_language_en():
-	current_language = "en"
-	load_dialogues()
-	if dialogue_open:
-		start_text_animation(dialogues[current_dialogue])  # Перезапуск диалога на новом языке
+func change_language_en():
+	if !is_animating_text:
+		current_language = "en"
+		load_dialogues()
+		if dialogue_open:
+			start_text_animation(dialogues[current_dialogue])  # Перезапуск диалога на новом языке

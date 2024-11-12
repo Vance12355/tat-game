@@ -34,3 +34,11 @@ visible = false
 position = Vector2(580, 328)
 scale = Vector2(0.765, 0.586667)
 texture = ExtResource("2_vtind")
+
+[node name="Restart" type="Button" parent="GameOver"]
+process_mode = 3
+offset_left = 464.0
+offset_top = 520.0
+offset_right = 696.0
+offset_bottom = 608.0
+text = "RESTART"

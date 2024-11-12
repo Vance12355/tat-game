@@ -96,10 +96,8 @@ func _ready():
 	global_position = checkpoint_position
 	var UI = $"../UI"
 	update_health_display()
+	$"../UI/GameOver/Restart".connect("pressed", Callable(self, "_on_restart_button_pressed"))
 	
-	
-	#$"../LadderArea".connect("player_entered", Callable(self, "_on_ladder_entered"))
-	#$"../LadderArea".connect("player_exited", Callable(self, "_on_ladder_exited"))
 
 
 func _on_ladder_entered(player):
@@ -140,6 +138,15 @@ func _on_abyss_body_entered(body: Node2D, marker: NodePath) -> void:
 	take_damage(1)
 	respawn()
 	print(health)
+
+
+func _on_restart_button_pressed():
+	# Перезагружаем текущую сцену
+	print("sadlhjrgbsdg")
+	var current_scene = get_tree().current_scene
+	get_tree().paused = false
+	get_tree().reload_current_scene()  # Перезапуск уровня
+
 
 # Переменные для состояния лестницы
 var on_ladder = false

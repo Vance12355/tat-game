@@ -46,28 +46,35 @@ offset_left = 118.0
 offset_top = 90.0
 offset_right = 1270.0
 offset_bottom = 738.0
+focus_mode = 0
 flat = true
 
 [node name="Language_tt" type="Button" parent="DialogPanel"]
+process_mode = 3
 layout_mode = 0
 offset_left = 134.0
 offset_top = 442.0
 offset_right = 326.0
 offset_bottom = 506.0
+focus_mode = 0
 text = "TT"
 
 [node name="Language_ru" type="Button" parent="DialogPanel"]
+process_mode = 3
 layout_mode = 0
 offset_left = 134.0
 offset_top = 522.0
 offset_right = 326.0
 offset_bottom = 586.0
+focus_mode = 0
 text = "RU"
 
 [node name="Language_en" type="Button" parent="DialogPanel"]
+process_mode = 3
 layout_mode = 0
 offset_left = 134.0
 offset_top = 602.0
 offset_right = 326.0
 offset_bottom = 666.0
+focus_mode = 0
 text = "EN"
