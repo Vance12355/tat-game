@@ -13,3 +13,11 @@ texture = ExtResource("1_bjnv4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_qdktf")
+
+[node name="Hatch2" type="Sprite2D" parent="."]
+position = Vector2(48, 0)
+texture = ExtResource("1_bjnv4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(48, -4)
+shape = SubResource("RectangleShape2D_qdktf")

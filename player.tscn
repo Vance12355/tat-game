@@ -1,9 +1,55 @@
-[gd_scene load_steps=31 format=3 uid="uid://drp6r4vikubm3"]
+[gd_scene load_steps=44 format=3 uid="uid://drp6r4vikubm3"]
 
 [ext_resource type="Texture2D" uid="uid://bloc52lrxpywl" path="res://assets/player/_Idle.png" id="1_vt1nc"]
 [ext_resource type="Script" path="res://player.gd" id="1_y55qs"]
+[ext_resource type="Texture2D" uid="uid://c2lpxadw83p1u" path="res://assets/assets 1.1/enter_cave.png" id="2_ubwwy"]
 [ext_resource type="Texture2D" uid="uid://cwq6k4ygnvnja" path="res://assets/player/_Run.png" id="3_ajnub"]
+[ext_resource type="Texture2D" uid="uid://cc5qmblsvders" path="res://assets/assets 1.1/Exit the cave.png" id="3_f2o3e"]
 [ext_resource type="Texture2D" uid="uid://3g0c32ww37yr" path="res://assets/player/_Jump.png" id="3_orxwp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pysat"]
+atlas = ExtResource("2_ubwwy")
+region = Rect2(0, 48, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5nanf"]
+atlas = ExtResource("2_ubwwy")
+region = Rect2(96, 48, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlopr"]
+atlas = ExtResource("2_ubwwy")
+region = Rect2(192, 48, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g13ml"]
+atlas = ExtResource("2_ubwwy")
+region = Rect2(288, 48, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssrfs"]
+atlas = ExtResource("2_ubwwy")
+region = Rect2(384, 48, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56c1m"]
+atlas = ExtResource("2_ubwwy")
+region = Rect2(480, 48, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyi01"]
+atlas = ExtResource("3_f2o3e")
+region = Rect2(0, 48, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8uf20"]
+atlas = ExtResource("3_f2o3e")
+region = Rect2(96, 48, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lx863"]
+atlas = ExtResource("3_f2o3e")
+region = Rect2(192, 48, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfmom"]
+atlas = ExtResource("3_f2o3e")
+region = Rect2(288, 48, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpfl7"]
+atlas = ExtResource("3_f2o3e")
+region = Rect2(384, 48, 96, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ahdjv"]
 atlas = ExtResource("1_vt1nc")
@@ -101,6 +147,49 @@ region = Rect2(1080, 0, 120, 80)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_pysat")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5nanf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlopr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g13ml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssrfs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56c1m")
+}],
+"loop": true,
+"name": &"enter_cave",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qyi01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8uf20")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lx863")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfmom")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpfl7")
+}],
+"loop": true,
+"name": &"exit_cave",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ahdjv")
 }, {
 "duration": 1.0,
@@ -196,7 +285,7 @@ script = ExtResource("1_y55qs")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_864p3")
-animation = &"run"
+animation = &"enter_cave"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-5, 20)

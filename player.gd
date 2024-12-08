@@ -19,6 +19,8 @@ var UI
 
 var get_food = false
 
+
+
 # Функция обновления физики персонажа
 func _physics_process(delta: float) -> void:
 	if get_food:
@@ -106,6 +108,22 @@ func _on_ladder_entered(player):
 func _on_ladder_exited(player):
 	on_ladder = false
 
+func enter_cave(scene_path: String) -> void:
+	print("sldkjghbsef")
+	get_tree().change_scene_to_file(scene_path)  # Переход на новую сцену
+	$AnimatedSprite2D.play("enter_cave")  # Проигрываем анимацию входа
+	await $AnimatedSprite2D.animation_finished  # Ждем завершения анимации
+	await fade_to_black_and_change_scene(scene_path)
+
+func exit_cave() -> void:
+	$AnimatedSprite2D.play("exit_cave")  # Проигрываем анимацию выхода
+	await $AnimatedSprite2D.animation_finished  # Ждем завершения анимации
+	await fade_to_black_and_change_scene("res://Level1.tscn")  # Вернуться на уровень
+
+func fade_to_black_and_change_scene(scene_path: String) -> void:
+	$ScreenFade.fade_out()  # Затемнение экрана
+	await $ScreenFade.fade_completed  # Ждем завершения анимации затемнения
+	get_tree().change_scene_to_file(scene_path)  # Переход на новую сцену
 
 
 var heart_texture: Texture = preload("res://assets/Assets/heart_60px.png")
