@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bixmou15irutc"
-path="res://.godot/imported/Terrain (16x16) (1)4.png-36458ca6cb7c80653f7aab467416b017.ctex"
+uid="uid://dupmm3eg6khhr"
+path="res://.godot/imported/Snake_breathing.png-f14fa42e439c7663ac5ab198c8959af1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Blocks/Terrain (16x16) (1)4.png"
-dest_files=["res://.godot/imported/Terrain (16x16) (1)4.png-36458ca6cb7c80653f7aab467416b017.ctex"]
+source_file="res://assets/assets 1.2/Snake_breathing.png"
+dest_files=["res://.godot/imported/Snake_breathing.png-f14fa42e439c7663ac5ab198c8959af1.ctex"]
 
 [params]
 

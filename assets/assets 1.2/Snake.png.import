@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bixmou15irutc"
-path="res://.godot/imported/Terrain (16x16) (1)4.png-36458ca6cb7c80653f7aab467416b017.ctex"
+uid="uid://fuwx7m4oka84"
+path="res://.godot/imported/Snake.png-ba2bcb0e2867401d5ca384cdf65afcc3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Blocks/Terrain (16x16) (1)4.png"
-dest_files=["res://.godot/imported/Terrain (16x16) (1)4.png-36458ca6cb7c80653f7aab467416b017.ctex"]
+source_file="res://assets/assets 1.2/Snake.png"
+dest_files=["res://.godot/imported/Snake.png-ba2bcb0e2867401d5ca384cdf65afcc3.ctex"]
 
 [params]
 

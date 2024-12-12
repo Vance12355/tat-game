@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bixmou15irutc"
-path="res://.godot/imported/Terrain (16x16) (1)4.png-36458ca6cb7c80653f7aab467416b017.ctex"
+uid="uid://dp706mm8rpat0"
+path="res://.godot/imported/Water.png-652fb9b11a97faa49fafb16c359edcc7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Blocks/Terrain (16x16) (1)4.png"
-dest_files=["res://.godot/imported/Terrain (16x16) (1)4.png-36458ca6cb7c80653f7aab467416b017.ctex"]
+source_file="res://assets/assets 1.3/Water.png"
+dest_files=["res://.godot/imported/Water.png-652fb9b11a97faa49fafb16c359edcc7.ctex"]
 
 [params]
 

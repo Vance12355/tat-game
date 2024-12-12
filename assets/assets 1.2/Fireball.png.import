@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv75ubi57u737"
-path="res://.godot/imported/Terrain (16x16) (1)2.png-0b888b1d4b671818a3ba3f60d9f83c50.ctex"
+uid="uid://cf02iiidef7uu"
+path="res://.godot/imported/Fireball.png-cc474c8dee36a713e54ffc626b0a5200.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Blocks/Terrain (16x16) (1)2.png"
-dest_files=["res://.godot/imported/Terrain (16x16) (1)2.png-0b888b1d4b671818a3ba3f60d9f83c50.ctex"]
+source_file="res://assets/assets 1.2/Fireball.png"
+dest_files=["res://.godot/imported/Fireball.png-cc474c8dee36a713e54ffc626b0a5200.ctex"]
 
 [params]
 

@@ -1,18 +1,101 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1msn8yas1erj"]
+[gd_scene load_steps=16 format=3 uid="uid://b1msn8yas1erj"]
 
 [ext_resource type="Script" path="res://chak_chak.gd" id="1_1t00v"]
 [ext_resource type="Texture2D" uid="uid://dp67fphy1u4ac" path="res://assets/food/25_cheesepuff_bowl.png" id="1_xrksx"]
+[ext_resource type="Texture2D" uid="uid://jceu3rtl50cq" path="res://assets/assets 1.3/chuck.png" id="3_7i6sy"]
+[ext_resource type="Texture2D" uid="uid://edcckfu7phvo" path="res://assets/assets 1.2/chuck-chuck.png" id="4_lsx8w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rj5mb"]
+atlas = ExtResource("4_lsx8w")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oo1qu"]
+atlas = ExtResource("4_lsx8w")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rx1nj"]
+atlas = ExtResource("4_lsx8w")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htknx"]
+atlas = ExtResource("4_lsx8w")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n70r4"]
+atlas = ExtResource("4_lsx8w")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3imsf"]
+atlas = ExtResource("4_lsx8w")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swm4j"]
+atlas = ExtResource("4_lsx8w")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irw7u"]
+atlas = ExtResource("4_lsx8w")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjntf"]
+atlas = ExtResource("4_lsx8w")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i4854"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rj5mb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oo1qu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rx1nj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htknx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n70r4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3imsf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swm4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_irw7u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjntf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4m1he"]
-size = Vector2(16, 16)
+size = Vector2(24, 24)
 
 [node name="ChakChak" type="Area2D"]
 script = ExtResource("1_1t00v")
 
 [node name="25CheesepuffBowl" type="Sprite2D" parent="."]
-position = Vector2(-2.68221e-07, 0)
-scale = Vector2(0.5, 0.5)
+visible = false
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("1_xrksx")
+
+[node name="Chuck" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("3_7i6sy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.375, 0.375)
+sprite_frames = SubResource("SpriteFrames_i4854")
+frame_progress = 0.88032
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_4m1he")

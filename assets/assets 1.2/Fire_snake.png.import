@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bixmou15irutc"
-path="res://.godot/imported/Terrain (16x16) (1)4.png-36458ca6cb7c80653f7aab467416b017.ctex"
+uid="uid://b2fdg8felc014"
+path="res://.godot/imported/Fire_snake.png-bc37318b38a61c0517203f5ab99eb082.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Blocks/Terrain (16x16) (1)4.png"
-dest_files=["res://.godot/imported/Terrain (16x16) (1)4.png-36458ca6cb7c80653f7aab467416b017.ctex"]
+source_file="res://assets/assets 1.2/Fire_snake.png"
+dest_files=["res://.godot/imported/Fire_snake.png-bc37318b38a61c0517203f5ab99eb082.ctex"]
 
 [params]
 

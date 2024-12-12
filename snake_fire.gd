@@ -5,11 +5,16 @@ extends CharacterBody2D
 @export var fireball_scene : PackedScene  # Префаб огненного шара
 @export var fall_speed: float = 400.0  # Скорость падения
 
+const GRAVITY = 500  # сила гравитации
+const MAX_FALL_SPEED = 200  # максимальная скорость падения
+
 # Состояния
 var is_falling = false
 
 @onready var attack_timer = $Timer
 @onready var fireball_spawner = $FireballSpawner
+
+var vertical_velocity = 0
 
 func _ready() -> void:
 	# Запускаем таймер для атак
@@ -18,12 +23,16 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	# Проверка состояния падения
+	velocity.y += fall_speed * delta
+	move_and_slide()
 	if is_falling:
-		velocity.y += fall_speed * delta
 		move_and_slide()
 		if is_on_floor():
 			is_falling = false
 			$AnimatedSprite2D.play("slither")
+		else:
+			is_falling = true
+			
 
 func _attack() -> void:
 	# Проигрываем анимацию атаки

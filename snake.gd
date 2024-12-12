@@ -22,7 +22,9 @@ func _ready():
 
 func _physics_process(delta):
 	if not player_detected:
-		if animated_sprite.animation == "charge" and animated_sprite.frame_progress == 1.0:
+		if animated_sprite.animation == "charge" and animated_sprite.frame == 3:
+			player.respawn()
+			animated_sprite.speed_scale == 1
 			animated_sprite.play("slither")
 		if velocity.is_zero_approx():
 			velocity.x = PATROL_SPEED
@@ -46,8 +48,8 @@ func bite_player():
 	# Змея переключается на анимацию атаки и наносит урон
 	animated_sprite.play("charge")
 	player.take_damage(DAMAGE)
+	animated_sprite.speed_scale == 0.2
 	player_detected = false  # После атаки возвращается к патрулированию
-	player.respawn()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
